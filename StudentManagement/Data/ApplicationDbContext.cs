@@ -59,13 +59,17 @@ namespace StudentManagement.Data
                       .HasDefaultValue(true);
 
                 // Unique constraints enforced at the database level, mirroring the SQL script.
+
                 entity.HasIndex(s => s.StudentNumber)
                       .IsUnique()
+                      .HasFilter("[IsActive] = 1")
                       .HasDatabaseName("UQ_Students_StudentNumber");
 
                 entity.HasIndex(s => s.Email)
                       .IsUnique()
+                      .HasFilter("[IsActive] = 1")
                       .HasDatabaseName("UQ_Students_Email");
+
 
                 // Non-unique index to speed up name-based searches/sorting, a common list-page pattern.
                 entity.HasIndex(s => new { s.LastName, s.FirstName })

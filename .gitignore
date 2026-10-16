@@ -1,7 +1,33 @@
-bin/
-obj/
+
+# Visual Studio
 .vs/
 *.user
 *.suo
 .idea/
+
+# Build output
+**/bin/
+**/obj/
+Debug/
+Release/
+
+# Logs
+*.log
+logs/
+
+# Local databases
 *.db
+*.mdf
+*.ldf
+
+# Local secrets
+secrets.json
+*.pfx
+*.p12
+.env
+.env.*
+!.env.example
+
+# Test results
+TestResults/
+coverage/
