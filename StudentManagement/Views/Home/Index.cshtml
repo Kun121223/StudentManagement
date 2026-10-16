@@ -44,7 +44,7 @@
                 @foreach (var kvp in (IDictionary<int, int>)ViewBag.YearLevelBreakdown)
                 {
                     <li class="list-group-item d-flex justify-content-between align-items-center">
-                        Year @kvp.Key
+                        Năm thứ @kvp.Key
                         <span class="badge bg-primary rounded-pill">@kvp.Value</span>
                     </li>
                 }
@@ -71,7 +71,7 @@
                     @foreach (var s in (IEnumerable<StudentManagement.ViewModels.StudentDto>)ViewBag.RecentStudents)
                     {
                         <tr>
-                            <td>@s.FirstName @s.LastName</td>
+                            <td>@s.LastName @s.FirstName</td>
                             <td>@s.Course</td>
                             <td>@s.DateCreated.ToString("g")</td>
                         </tr>

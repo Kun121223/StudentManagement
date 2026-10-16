@@ -1,9 +1,9 @@
 @model StudentViewModel
 @{
-    ViewData["Title"] = "Edit Student";
+    ViewData["Title"] = "Chỉnh sửa sinh viên";
 }
 
-<h1><i class="bi bi-pencil-square"></i> Edit Student</h1>
+<h1><i class="bi bi-pencil-square"></i> Chỉnh sửa sinh viên</h1>
 
 <div class="card shadow-sm">
     <div class="card-body">
@@ -48,7 +48,7 @@
                     <select asp-for="YearLevel" class="form-select">
                         @for (int i = 1; i <= 6; i++)
                         {
-                            <option value="@i">Year @i</option>
+                            <option value="@i">Năm thứ @i</option>
                         }
                     </select>
                     <span asp-validation-for="YearLevel" class="text-danger"></span>
@@ -58,16 +58,16 @@
             @if (Model.DateCreated.HasValue)
             {
                 <p class="text-muted small">
-                    Created: @Model.DateCreated.Value.ToString("g")
+                    Ngày tạo: @Model.DateCreated.Value.ToString("dd/MM/yyyy HH:mm")
                     @if (Model.DateUpdated.HasValue)
                     {
-                        <span> | Last updated: @Model.DateUpdated.Value.ToString("g")</span>
+                        <span> | Cập nhật lần cuối: @Model.DateUpdated.Value.ToString("dd/MM/yyyy HH:mm")</span>
                     }
                 </p>
             }
 
-            <button type="submit" class="btn btn-primary"><i class="bi bi-check-circle"></i> Save Changes</button>
-            <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-x-circle"></i> Cancel</a>
+            <button type="submit" class="btn btn-primary"><i class="bi bi-check-circle"></i> Lưu thay đổi</button>
+            <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-x-circle"></i> Hủy</a>
         </form>
     </div>
 </div>

@@ -1,35 +1,35 @@
 @model StudentDto
 @{
-    ViewData["Title"] = "Delete Student";
+    ViewData["Title"] = "Xóa sinh viên";
 }
 
-<h1 class="text-danger"><i class="bi bi-exclamation-triangle-fill"></i> Delete Student</h1>
+<h1 class="text-danger"><i class="bi bi-exclamation-triangle-fill"></i> Xóa sinh viên</h1>
 
 <div class="alert alert-warning">
-    Are you sure you want to delete this student? This action cannot be undone from the UI.
+    Bạn có chắc chắn muốn xóa sinh viên này? Hành động này không thể hoàn tác từ giao diện người dùng.  
 </div>
 
 <div class="card shadow-sm" style="max-width: 600px;">
     <div class="card-body">
         <dl class="row mb-0">
-            <dt class="col-sm-4">Student Number</dt>
+            <dt class="col-sm-4">Mã sinh viên</dt>
             <dd class="col-sm-8">@Model.StudentNumber</dd>
 
-            <dt class="col-sm-4">Full Name</dt>
-            <dd class="col-sm-8">@Model.FirstName @Model.LastName</dd>
+            <dt class="col-sm-4">Họ và tên</dt>
+            <dd class="col-sm-8">@Model.LastName @Model.FirstName</dd>
 
             <dt class="col-sm-4">Email</dt>
             <dd class="col-sm-8">@Model.Email</dd>
 
-            <dt class="col-sm-4">Course</dt>
+            <dt class="col-sm-4">Ngành học</dt>
             <dd class="col-sm-8">@Model.Course</dd>
         </dl>
     </div>
     <div class="card-footer">
         <form asp-action="Delete" method="post">
             <input type="hidden" asp-for="StudentId" />
-            <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> Confirm Delete</button>
-            <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-x-circle"></i> Cancel</a>
+            <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> Xác nhận xóa</button>
+            <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-x-circle"></i> Hủy</a>
         </form>
     </div>
 </div>

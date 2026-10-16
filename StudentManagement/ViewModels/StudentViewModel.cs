@@ -40,8 +40,8 @@ namespace StudentManagement.ViewModels
         [StringLength(100)]
         [Display(Name = "Ngành học")]
         public string Course { get; set; } = string.Empty;
-        
-        [Required]
+
+        [Required(ErrorMessage = "Vui lòng chọn năm học.")]
         [Range(1, 6, ErrorMessage = "Năm học phải từ 1 đến 6.")]
         [Display(Name = "Năm học")]
         public int YearLevel { get; set; }

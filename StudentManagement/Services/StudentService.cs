@@ -57,12 +57,12 @@ namespace StudentManagement.Services
         {
             if (await _repository.StudentNumberExistsAsync(dto.StudentNumber))
             {
-                return (false, null, $"Student number '{dto.StudentNumber}' is already in use.");
+                return (false, null, $"Mã sinh viên '{dto.StudentNumber}' đã tồn tại.");
             }
 
             if (await _repository.EmailExistsAsync(dto.Email))
             {
-                return (false, null, $"Email '{dto.Email}' is already in use.");
+                return (false, null, $"Email '{dto.Email}' đã được sử dụng.");
             }
 
             var entity = new Student
@@ -86,17 +86,17 @@ namespace StudentManagement.Services
             var existing = await _repository.GetByIdAsync(id);
             if (existing is null)
             {
-                return (false, null, "Student not found.");
+                return (false, null, "Không tìm thấy sinh viên.");
             }
 
             if (await _repository.StudentNumberExistsAsync(dto.StudentNumber, excludeStudentId: id))
             {
-                return (false, null, $"Student number '{dto.StudentNumber}' is already in use by another student.");
+                return (false, null, $"Mã sinh viên '{dto.StudentNumber}' đã được sử dụng bởi sinh viên khác.");
             }
 
             if (await _repository.EmailExistsAsync(dto.Email, excludeStudentId: id))
             {
-                return (false, null, $"Email '{dto.Email}' is already in use by another student.");
+                return (false, null, $"Email '{dto.Email}' đã được sử dụng bởi sinh viên khác.");
             }
 
             existing.StudentNumber = dto.StudentNumber.Trim();
